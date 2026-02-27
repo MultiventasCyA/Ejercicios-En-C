@@ -6,7 +6,7 @@
 #define CUPO 2
 
 // !----- ESTRUCTURA -----
-struct Estudiante //estructura de estudiante
+struct Estudiante
 {
     int numeroRegistro;
     char fecha[11];
