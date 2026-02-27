@@ -14,5 +14,5 @@ int main()
 
   printf("El promedio de los tres numeros es: %.2f", (numero1 + numero2 + numero3) / 3.0);
 
-  return 0;
+  return 0; //no retorna nada
 }
