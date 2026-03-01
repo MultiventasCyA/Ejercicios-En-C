@@ -48,7 +48,7 @@ int main()
     do
     {
         menu();
-        // !Validar que la entrada sea un número
+        // !Validar que la entrada sea un numero
         if (scanf("%d", &opcion) != 1)
         {
             printf("Por favor, ingresa un numero valido.\n");
@@ -109,7 +109,7 @@ void registrarEstudiante()
         printf("1. REGISTRO DE ESTUDIANTE\n");
         printf("================================\n");
 
-        // !Asignamos el número de registro usando el contador global
+        // !Asignamos el numero de registro usando el contador global
         printf("Registro No.: %d\n", contadorRegistro);
 
         printf("\nFecha (DD/MM/AAAA): ");
@@ -138,7 +138,7 @@ void registrarEstudiante()
         strcpy(estudiantes[totalEstudiantes].estado, "REGISTRADO");
         strcpy(estudiantes[totalEstudiantes].pae, "Ninguno");
 
-        // !IMPORTANTE! Incrementamos el total inmediatamente después de guardar
+        // !IMPORTANTE! Incrementamos el total inmediatamente despues de guardar
         totalEstudiantes++;
 
         printf("\n ESTUDIANTE REGISTRADO.\n");
@@ -150,7 +150,7 @@ void registrarEstudiante()
         }
         else
         {
-            opcionContinuar = 'M'; // !Forzar salida si se alcanza el límite
+            opcionContinuar = 'M'; // !Forzar salida si se alcanza el limite
         }
 
     } while (opcionContinuar == 'R' || opcionContinuar == 'r');
