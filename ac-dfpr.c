@@ -78,9 +78,10 @@ void capturarInventario()
 {
 
     printf("--- CAPTURA DE IVENTARIO INICIAL ---\n");
-    printf("Cuantos productos desea registrar? (1 a 10): ");
+    printf("Cuantos productos deseas registrar? (1 a 10): ");
     scanf("%d", &totalProductos);
 
+    // validar si esta dentro de los 10 permitidos
     if (totalProductos < 1 || totalProductos > 10)
     {
         printf("Cantidad invalida\n");
@@ -94,10 +95,18 @@ void capturarInventario()
         printf("Codigo (entero): ");
         scanf("%d", &inventario[i].codigo);
         printf("Nombre: ");
-        scanf("%s", inventario[i].nombre);
+        scanf(" %[^\n]", inventario[i].nombre);
         printf("Existencia: ");
         scanf("%d", &inventario[i].existencia);
+
+        inventario[i].vendidos = 0;
     }
+
+    printf("Inventario capturado correctamente.\n");
+}
+
+void registrarVenta()
+{
 }
 
 void salir()
