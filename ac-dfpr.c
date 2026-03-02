@@ -12,7 +12,7 @@ struct producto
    int vendidos;
 };
 
-struct producto inventario[MAX]; // variable temporal a la extructura.
+struct producto inventario[MAX]; //variable temporal a la extructura.
 int totalProductos = 0;
 
 // Buscar producto por código
@@ -42,7 +42,7 @@ int main()
 
    encabezado(); // Extra: encabezado para que se imprima una vez
 
-   do // Repita menu hasta que se eliga el 4. salir
+   do //Repita menu hasta que se eliga el 4. salir
    {
       menu();
       if (scanf("%d", &opcion) != 1)
