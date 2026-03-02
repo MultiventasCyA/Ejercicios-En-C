@@ -1,5 +1,7 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <string.h>
+
+#define MAX 10
 
 struct producto
 {
@@ -9,8 +11,11 @@ struct producto
     int vendidos;
 };
 
+struct producto inventario[MAX];
+int totalProductos = 0;
+
 void menu();
-// void capturarInventario();
+void capturarInventario();
 // void registrarVenta();
 // void mostrarReporte();
 void salir();
@@ -33,7 +38,7 @@ int main()
         switch (opcion)
         {
         case 1:
-            // capturarInventario();
+            capturarInventario();
             break;
         case 2:
             // registrarVenta();
@@ -67,6 +72,32 @@ void menu()
     printf("\t4) Salir\n");
     printf("\t-----------------------------------------------\n");
     printf("\tElige una opcion: ");
+}
+
+void capturarInventario()
+{
+
+    printf("--- CAPTURA DE IVENTARIO INICIAL ---\n");
+    printf("Cuantos productos desea registrar? (1 a 10): ");
+    scanf("%d", &totalProductos);
+
+    if (totalProductos < 1 || totalProductos > 10)
+    {
+        printf("Cantidad invalida\n");
+        totalProductos = 0;
+        return;
+    }
+
+    for (int i = 0; i < totalProductos; i++)
+    {
+        printf("\nProducto %d\n", i + 1);
+        printf("Codigo (entero): ");
+        scanf("%d", &inventario[i].codigo);
+        printf("Nombre: ");
+        scanf("%s", inventario[i].nombre);
+        printf("Existencia: ");
+        scanf("%d", &inventario[i].existencia);
+    }
 }
 
 void salir()
