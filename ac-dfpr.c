@@ -31,8 +31,8 @@ int buscarProducto(int codigo)
 // prototipos
 void menu();
 void capturarInventario();
-// void registrarVenta();
-// void mostrarReporte();
+void registrarVenta();
+void mostrarReporte();
 void salir();
 void encabezado();
 
@@ -59,10 +59,10 @@ int main()
          capturarInventario();
          break;
       case 2:
-         // registrarVenta();
+         registrarVenta();
          break;
       case 3:
-         // mostrarReporte();
+         mostrarReporte();
          break;
       case 4:
          salir();
@@ -98,7 +98,7 @@ void menu()
 void capturarInventario()
 {
 
-   printf("\n\t--- CAPTURA DE IVENTARIO INICIAL ---\n");
+   printf("\n\t---- CAPTURA DE IVENTARIO INICIAL ----\n\n");
    printf("\tCuantos productos deseas registrar? (1 a 10): ");
    scanf("%d", &totalProductos);
 
@@ -123,14 +123,14 @@ void capturarInventario()
       inventario[i].vendidos = 0;
    }
 
-   printf("\n\nInventario capturado correctamente.\n");
+   printf("\n\nInventario capturado correctamente.\n\n");
 }
 
 void registrarVenta()
 {
    int cantidadProductos, codigo, cantidad;
 
-   printf("\n\t--- REGISTRAR VENTA ---\n");
+   printf("\n\t--- REGISTRAR VENTA ---\n\n");
    printf("Cuantos productos diferentes incluiras en esta venta?: ");
    scanf("%d", &cantidadProductos);
 
@@ -144,7 +144,7 @@ void registrarVenta()
 
       if (pos == -1)
       {
-         printf("ERROR: El codigo %d NO existe en el iv¿nventario.\n", codigo);
+         printf("\nERROR:\nEl codigo %d NO existe en el ivenventario.\n\n", codigo);
          printf("Este producto no se registra.\n");
          continue;
       }
@@ -154,30 +154,82 @@ void registrarVenta()
 
       if (cantidad > inventario[pos].existencia)
       {
-         printf("ERROR: Existencia insuficiente.\n");
+         printf("\nERROR: Existencia insuficiente.\n");
+         printf("Existencia actual de %s: %d\n", inventario[pos].nombre, inventario[pos].existencia);
+         printf("\n\nEste producto no se registra.\n\n");
          continue;
       }
 
       inventario[pos].existencia -= cantidad;
       inventario[pos].vendidos += cantidad;
 
-      printf("Venta registrada correctamente.\n");
+      printf("\nVenta registrada correctamente.\n\n");
    }
 }
 
-void registrarVenta()
+void mostrarReporte()
 {
+
+   printf("\n\t------- REPORTE FINAL DEL DIA -------\n\n");
+
+   int totalVendidos = 0;
+   int maxVendidos = -1;
+   int indiceMasVendido = -1;
+
+   for (int i = 0; i < totalProductos; i++)
+   {
+      totalVendidos += inventario[i].vendidos;
+
+      if (inventario[i].vendidos > maxVendidos)
+      {
+         maxVendidos = inventario[i].vendidos;
+         indiceMasVendido = i;
+      }
+   }
+
+   printf("Total de piezas vendidas: %d\n", totalVendidos);
+
+   if (indiceMasVendido != -1)
+   {
+      printf("\nProducto mas vendido:\n");
+      printf("Codigo: %d\n", inventario[indiceMasVendido].codigo);
+      printf("Nombre: %s\n", inventario[indiceMasVendido].nombre);
+      printf("Piezas vendidas: %d\n", inventario[indiceMasVendido].vendidos);
+   }
+
+   printf("\n---------------------------------------------------\n");
+   printf("\t----- INVENTARIO FINAL -----\n");
+   printf("---------------------------------------------------\n");
+   printf(" COD\tNOMBRE\tEXIST\tVENDIDOS\tALERTA\n");
+   printf("---------------------------------------------------\n");
+
+   for (int i = 0; i < totalProductos; i++)
+   {
+      printf("%d\t%s\t %d\t %d\t",
+             inventario[i].codigo,
+             inventario[i].nombre,
+             inventario[i].existencia,
+             inventario[i].vendidos);
+
+      if (inventario[i].existencia <= 2)
+      {
+         printf("EXISTENCIA BAJA");
+      }
+
+      printf("\n");
+   }
+   printf("---------------------------------------------------\n");
 }
 
 void salir()
 {
-   printf("\tGracias por usar el inventario.\n");
+   printf("\n\tGracias por usar el inventario.\n");
 }
 
 void encabezado()
 {
    printf("===============================================================\n");
-   printf("\t\tPAPELERIA DEL CAMPUS\n");
+   printf("\t\tPAPELERIA DEL CAMPUS\n\n");
    printf("\tNombre del Estudiante: Fernando Soberanis\n");
    printf("\tMatricula: ES261100416\n");
    printf("\tGrupo: DS-DFPR-2601-B1-012\n");
