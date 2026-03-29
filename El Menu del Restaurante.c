@@ -7,7 +7,7 @@ void mostrarMenu();
 int main()
 {
 
-	int opcion, primeraVez = 1, contHamb = 0, contPapas = 0, contRefresco = 0;
+	int opcion, primeraVez = 1, contHamb = 0, contPapas = 0, contRefresco = 0, contPaletas = 0;
 	float total = 0;
 
 	do
@@ -42,6 +42,7 @@ int main()
 			break;
 		case 4:
 			total += 5;
+			contPaletas++;
 			printf("Se agrego Paleta.\n");
 			break;
 		case 0:
@@ -54,7 +55,7 @@ int main()
 	} while (opcion != 0);
 
 	printf("Total a pagar es de: %.2f\n", total);
-	printf("Se vendio %d Hamburguesas\n\t- %d Papas Fritas\n\t- %d Refrescos.", contHamb, contPapas, contRefresco);
+	printf("Se vendio %d Hamburguesas\n\t- %d Papas Fritas\n\t- %d Refrescos.\n\t- %d Paletas", contHamb, contPapas, contRefresco, contPaletas);
 
 	return 0;
 }
