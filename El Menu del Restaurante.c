@@ -7,7 +7,7 @@ void mostrarMenu();
 int main()
 {
 
-	int opcion, primeraVez = 1, contHamb = 0, contPapas = 0, contRefresco = 0, contPaletas = 0;
+	int opcion, primeraVez = 1, contHamb = 0, contPapas = 0, contRefresco = 0, contPaletas = 0, contBrownies = 0;
 	float total = 0;
 
 	do
@@ -45,6 +45,11 @@ int main()
 			contPaletas++;
 			printf("Se agrego Paleta.\n");
 			break;
+		case 5:
+			total += 20;
+			contBrownies++;
+			printf("Se agrego Brownie.\n");
+			break;
 		case 0:
 			printf("\n--- Generando Cuenta. ---\n");
 			break;
@@ -55,7 +60,7 @@ int main()
 	} while (opcion != 0);
 
 	printf("\n--- Total a pagar es de: %.2f ---\n", total);
-	printf("\nSe vendio:\n\t- %d Hamburguesas\n\t- %d Papas Fritas\n\t- %d Refrescos\n\t- %d Paletas", contHamb, contPapas, contRefresco, contPaletas);
+	printf("\nSe vendio:\n\t- %d Hamburguesas\n\t- %d Papas Fritas\n\t- %d Refrescos\n\t- %d Paletas\n\t- %d Brownies", contHamb, contPapas, contRefresco, contPaletas, contBrownies);
 
 	return 0;
 }
@@ -67,5 +72,6 @@ void mostrarMenu()
 	printf("2. Papas Fritas ($50)\n");
 	printf("3. Refresco ($30)\n");
 	printf("4. Paletas ($5)\n");
+	printf("5. Brownies ($20)\n");
 	printf("0. Obtener cuenta y salir\n");
 }
