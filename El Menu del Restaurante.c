@@ -19,7 +19,7 @@ int main()
 			primeraVez = 0;
 		}
 
-		printf("Seleccion un Prodcuto: ");
+		printf("\nSeleccione un Producto: ");
 		scanf("%d", &opcion);
 
 		switch (opcion)
@@ -46,16 +46,16 @@ int main()
 			printf("Se agrego Paleta.\n");
 			break;
 		case 0:
-			printf("Generando Cuenta.\n");
+			printf("\n--- Generando Cuenta. ---\n");
 			break;
 		default:
-			printf("Opcion no valida. Intente de Nuevo.\n");
+			printf("\nOpcion no valida. Intente de Nuevo.\n");
 		}
 
 	} while (opcion != 0);
 
-	printf("Total a pagar es de: %.2f\n", total);
-	printf("Se vendio %d Hamburguesas\n\t- %d Papas Fritas\n\t- %d Refrescos\n\t- %d Paletas", contHamb, contPapas, contRefresco, contPaletas);
+	printf("\n--- Total a pagar es de: %.2f ---\n", total);
+	printf("\nSe vendio:\n\t- %d Hamburguesas\n\t- %d Papas Fritas\n\t- %d Refrescos\n\t- %d Paletas", contHamb, contPapas, contRefresco, contPaletas);
 
 	return 0;
 }
