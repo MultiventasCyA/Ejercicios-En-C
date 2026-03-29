@@ -67,5 +67,5 @@ void mostrarMenu()
 	printf("2. Papas Fritas ($50)\n");
 	printf("3. Refresco ($30)\n");
 	printf("4. Paletas ($5)\n");
-	printf("0. Cerrar cuenta y salir\n");
+	printf("0. Obtener cuenta y salir\n");
 }
